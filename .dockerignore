@@ -1,0 +1,18 @@
+.git/
+.github/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+venv/
+.env
+.DS_Store
+
+# Data artifacts
+models/
+data/processed/
