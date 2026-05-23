@@ -69,6 +69,26 @@ source .venv/bin/activate   # Linux/macOS
 pip install -r requirements.txt
 ```
 
+### API
+
+```bash
+uvicorn src.api:app --reload --host 0.0.0.0 --port 8000
+```
+
+После запуска доступны:
+- `GET /health` — проверка статуса
+- `POST /predict` — одиночное предсказание
+- `POST /batch_predict` — пакетная оценка
+
+### Streamlit
+
+```bash
+streamlit run src/streamlit_app.py
+```
+
+В интерфейсе можно отправлять запросы в FastAPI или использовать локальный baseline,
+если API недоступен.
+
 ### Docker (JupyterLab)
 
 ```bash
