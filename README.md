@@ -69,6 +69,14 @@ source .venv/bin/activate   # Linux/macOS
 pip install -r requirements.txt
 ```
 
+### Docker (JupyterLab)
+
+```bash
+docker compose up --build
+```
+
+После старта откройте `http://localhost:8888` (токен будет в логах контейнера).
+
 ## Данные
 - `data/raw/` — исходные файлы
 - `data/processed/` — предобработанные данные
@@ -78,8 +86,8 @@ pip install -r requirements.txt
 Здесь коротко выпишите результаты.
 | Модель | MAE | RMSE | R2 | Spearman | Примечание |
 |--------|-------------|-------------|-------------|-------------|------------|
-| Baseline | 0.04 | 0.05 | 0.39 | 0.64 | RandomForest |
-| Лучшая модель | — | — | — | — | — |
+| Baseline | 0.040292 | 0.050404 | 0.388936 | 0.648396 | RandomForest |
+| Лучшая модель | 0.038926 | 0.049998 | 0.398746 | 0.648212 | LightGBM_Tuned |
 
 
 ## Отчёт

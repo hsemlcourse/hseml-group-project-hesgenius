@@ -1,16 +1,14 @@
 """
 Предобработка данных перед созданием baseline-модели, здесь будем
-чистить датасет, нормализовать данные, добавлять новые признаки 
+чистить датасет, нормализовать данные, добавлять новые признаки
 и таргет из EDA, убирать метрики с угрозой даталика, а затем
 сохраним все в новый предобработанный датасет в формате .csv
 в папку /data/processed.
 """
 
-from typing import Iterable
 
 import numpy as np
 import pandas as pd
-
 
 RANDOM_SEED = 42
 
@@ -195,7 +193,6 @@ def remove_invalid_cards(
     Удаляем ненужные карточки
     """
     result = df.copy()
-    initial_rows = len(result)
 
     invalid_reason = pd.Series("", index=result.index, dtype="object")
 
@@ -388,14 +385,7 @@ def build_processed_dataset(raw_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 def save_outputs(
     processed: pd.DataFrame
 ) -> None:
-
     processed.to_csv(OUTPUT_DIR, index=False)
-
-    available_numeric = [col for col in NUMERIC_FEATURE_COLUMNS if col in processed.columns]
-    available_categorical = [col for col in CATEGORICAL_FEATURE_COLUMNS if col in processed.columns]
-    available_text = [col for col in TEXT_FEATURE_COLUMNS if col in processed.columns]
-
-
     print(f"Сохранено итоговых строк: {OUTPUT_DIR} ({processed.shape})")
 
 
